@@ -1,16 +1,11 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
-const mongoose = require('mongoose');
-
-require('dotenv').config();
-
-const { DB_HOST } = process.env;
 
 const contactsRouter = require('./routes/api/contacts');
+const { error } = require('./validation/contactsShema');
 
 const app = express();
-
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
 app.use(logger(formatsLogger));
@@ -26,17 +21,5 @@ app.use((_, res) => {
 app.use((err, _, res, __) => {
   res.status(500).json({ message: err.message });
 });
-
-mongoose.connect(
-  DB_HOST,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  err => {
-    if (err) throw err;
-    console.log('Connected to MongoDB!!!');
-  },
-);
 
 module.exports = app;
