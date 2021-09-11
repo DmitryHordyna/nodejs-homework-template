@@ -1,5 +1,11 @@
-const contactsShema = require('./contactsShema.js');
+const {
+  joiContactsShema,
+  RegExptPhone,
+  RegExptEmail,
+} = require('./contactsShema.js');
 
 module.exports = {
-  contactsShema,
+  joiContactsShema,
+  RegExptPhone,
+  RegExptEmail,
 };

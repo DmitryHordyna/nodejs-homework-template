@@ -1,9 +1,16 @@
 const express = require('express');
-const router = express.Router();
 
+const { joiContactsShema } = require('../../validation');
+const { validation } = require('../../middleware');
 const { contacts: ctrl } = require('../../controller');
 
-router.post('/', ctrl.addContact);
+const router = express.Router();
+
+const validfationMiddleware = validation(joiContactsShema);
+
+router.get('/', ctrl.getAll);
+
+router.post('/', validfationMiddleware, ctrl.addContact);
 
 module.exports = router;
 
