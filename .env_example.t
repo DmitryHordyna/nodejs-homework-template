@@ -1,0 +1,2 @@
+MANGO_CONNECTION_STRING=mongodb+srv://<DB_USER>:<DB_USER_PASS><cluster0>.udsrf.mongodb.net/<DB_NAME>?retryWrites=true&w=majority
+PORT=<number.length=4>
