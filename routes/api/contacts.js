@@ -2,7 +2,7 @@ const express = require('express');
 
 const { joiSchema } = require('../../models');
 const { validation } = require('../../middlewares');
-const ctrl = require('../../controller');
+const ctrl = require('../../controller/contact');
 
 const validationMiddleware = validation(joiSchema);
 
