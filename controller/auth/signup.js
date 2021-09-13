@@ -2,12 +2,12 @@ const { Conflict } = require('http-errors');
 
 const { User } = require('../../models');
 
-const register = async (req, res, next) => {
+const signup = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
 
   if (user) {
-    throw new Conflict('Already register');
+    throw new Conflict('Already signup');
   }
   // const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   // const result = await User.create({ email, password: hashPassword });
@@ -23,4 +23,4 @@ const register = async (req, res, next) => {
   });
 };
 
-module.exports = register;
+module.exports = signup;

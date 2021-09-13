@@ -6,16 +6,17 @@ const {
   controllerWrapper,
   authenticate,
 } = require('../../middlewares');
-const ctrl = require('../../controller/auth');
+const ctrl = require('../../controller/contact');
 
 const validationMiddleware = validation(joiUserSchema);
 
 const router = express.Router();
 
-router.post('/signup', validationMiddleware, controllerWrapper(ctrl.signup));
-
-router.post('/login', validationMiddleware, controllerWrapper(ctrl.login));
-
-router.get('/logout', controllerWrapper(ctrl.logout));
+router.post(
+  'auth/current',
+  controllerWrapper(authenticate),
+  validationMiddleware,
+  controllerWrapper(ctrl.add),
+);
 
 module.exports = router;
