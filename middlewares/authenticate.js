@@ -5,7 +5,9 @@ const { User } = require('../models');
 
 const authenticate = async (req, _, next) => {
   try {
+    // console.log(req.headers);
     const [bearer, token] = req.headers.authorization.split(' ');
+
     if (bearer !== 'Bearer') {
       throw new Unauthorized();
     }
@@ -16,6 +18,7 @@ const authenticate = async (req, _, next) => {
     if (!user) {
       throw new Unauthorized();
     }
+
     req.user = user;
     next();
   } catch (error) {
