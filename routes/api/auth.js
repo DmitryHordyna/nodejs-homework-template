@@ -22,7 +22,7 @@ router.get('/logout', controllerWrapper(ctrl.logout));
 router.get(
   '/current',
   controllerWrapper(authenticate),
-  controllerWrapper(contactCtrl.getAll),
+  controllerWrapper(ctrl.getCurrentUser),
 );
 
 module.exports = router;
