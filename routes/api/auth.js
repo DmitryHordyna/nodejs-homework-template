@@ -7,7 +7,6 @@ const {
   authenticate,
 } = require('../../middlewares');
 const ctrl = require('../../controller/auth');
-const contactCtrl = require('../../controller/contact');
 
 const validationMiddleware = validation(joiUserSchema);
 
