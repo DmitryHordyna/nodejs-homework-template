@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, SchemaTypes } = require('mongoose');
 const Joi = require('joi');
 
 const RegExptPhone = /^[(]{1}[0-9]{3}[)]{1} [0-9]{3}-[0-9]{4}$/;
@@ -30,6 +30,11 @@ const contactSchema = Schema(
       type: Boolean,
       require: true,
       default: false,
+    },
+    owner: {
+      type: SchemaTypes.ObjectId,
+      ref: 'user',
+      require: true,
     },
   },
   { versionKey: false, timestamps: true },
