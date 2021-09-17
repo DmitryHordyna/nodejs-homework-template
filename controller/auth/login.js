@@ -6,6 +6,7 @@ const { User } = require('../../models');
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
+
   const { _id } = user;
 
   if (!user || !user.comparePassword(password)) {
