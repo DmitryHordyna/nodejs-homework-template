@@ -3,21 +3,6 @@ const jwl = require('jsonwebtoken');
 
 const { User } = require('../../models');
 
-// const SECRET_KEY = 'secret word';
-
-// const payload = {
-//   id: 'asd',
-// };
-
-// const token = jwl.sign(payload, SECRET_KEY);
-// const decodeToken = jwl.decode(token);
-
-// try {
-//   const result = jwl.verify(token, SECRET_KEY);
-// } catch (error) {
-//   console.log(message.error);
-// }
-
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
