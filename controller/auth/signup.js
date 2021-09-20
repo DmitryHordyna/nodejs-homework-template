@@ -15,11 +15,6 @@ const signup = async (req, res, next) => {
     throw new Conflict('Already signup');
   }
 
-  // const newUser = new User({ email });
-  // newUser.setPassword(password);
-  // await newUser.save();
-  // const dirPath = path.join(userDir, newUser._id.toString());
-  // await fs.mkdir(dirPath);
   const defaultAvatar = gravatar.url(email, { s: '100' }, true);
   const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   const newUser = {
