@@ -1,5 +1,5 @@
 const express = require('express');
-
+const bcrypt = require('bcryptjs');
 const { joiUserSchema, joiSchema } = require('../../models');
 const {
   validation,
