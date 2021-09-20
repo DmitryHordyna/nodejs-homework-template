@@ -14,8 +14,6 @@ const signup = async (req, res, next) => {
   if (user) {
     throw new Conflict('Already signup');
   }
-  // const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-  // const result = await User.create({ email, password: hashPassword });
 
   // const newUser = new User({ email });
   // newUser.setPassword(password);
