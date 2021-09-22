@@ -1,10 +1,11 @@
 const express = require('express');
-
+const bcrypt = require('bcryptjs');
 const { joiUserSchema, joiSchema } = require('../../models');
 const {
   validation,
   controllerWrapper,
   authenticate,
+  upload,
 } = require('../../middlewares');
 const ctrl = require('../../controller/auth');
 
@@ -22,6 +23,12 @@ router.get(
   '/current',
   controllerWrapper(authenticate),
   controllerWrapper(ctrl.getCurrentUser),
+);
+router.patch(
+  '/avatars',
+  controllerWrapper(authenticate),
+  upload.single('avatarURL'),
+  controllerWrapper(ctrl.updateAvatar),
 );
 
 module.exports = router;
