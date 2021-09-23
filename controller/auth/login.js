@@ -26,18 +26,3 @@ const login = async (req, res, next) => {
 };
 
 module.exports = login;
-
-// const SECRET_KEY = 'secret word';
-
-// const payload = {
-//   id: 'asd',
-// };
-
-// const token = jwl.sign(payload, SECRET_KEY);
-// const decodeToken = jwl.decode(token);
-
-// try {
-//   const result = jwl.verify(token, SECRET_KEY);
-// } catch (error) {
-//   console.log(message.error);
-// }
