@@ -12,6 +12,12 @@ const verify = async (req, res) => {
   await User.findByIdAndUpdate(user._id, { verifyToken: null, verify: true });
 
   res.send('<h2>Email confirmed</h2>');
+
+  return res.status(201).json({
+    status: 'succes',
+    code: 201,
+    message: 'Succes register',
+  });
 };
 
 module.exports = verify;
