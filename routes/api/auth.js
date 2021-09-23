@@ -1,12 +1,12 @@
 const express = require('express');
 
 const { joiUserSchema, joiSchema } = require('../../models');
+const ctrl = require('../../controller/auth');
 const {
   validation,
   controllerWrapper,
   authenticate,
 } = require('../../middlewares');
-const ctrl = require('../../controller/auth');
 
 const validationMiddleware = validation(joiUserSchema);
 
@@ -23,5 +23,6 @@ router.get(
   controllerWrapper(authenticate),
   controllerWrapper(ctrl.getCurrentUser),
 );
+router.get('/verify/:verifyToken', controllerWrapper(ctrl.verify));
 
 module.exports = router;

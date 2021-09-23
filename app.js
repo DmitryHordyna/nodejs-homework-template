@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const { contactsRouter } = require('./routes/api');
 const { authRouter } = require('./routes/api');
+const sendEMail = require('./utils');
 
 const app = express();
 
@@ -28,5 +29,14 @@ app.use((err, _, res, __) => {
   const { status = 500, message = 'server error' } = err;
   res.status(status).json({ message });
 });
+
+const mail = {
+  to: 'hordynadmytro@gmail.com',
+  from: '',
+  subject: 'регистрация на сайте',
+  html: '<p>Congratulfation loredmsfasmklfmkasnfjnsdnfkmnsdm,fn,msanm,fnsdm,nfm,sdn,fm smd fksanfkskdmfklmsdklmflksmdf<p>',
+};
+
+// sendEMail(mail);
 
 module.exports = app;
