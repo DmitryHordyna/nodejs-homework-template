@@ -29,22 +29,4 @@ app.use((err, _, res, __) => {
   res.status(status).json({ message });
 });
 
-
-
-const sqMail = require('@sendgrid/mail')
-require('dotenv').config()
-const { SENDGRID_API_KEY }= process.env
-sqMail.setApiKey(SENDGRID_API_KEY )
-
-const mail = {
-  to: "dim4ka2013@gmail.com",
-  from="hordynadmytro@gmail.com",
-  subject: "регистрация на сайте" ,
-  html: "<p>Congratulfation<p>",
-  
-}
-
-sqMail.send(mail).then(()=>console.log("GOOd")).catch(error=>console.log("mistake")
-
-
 module.exports = app;
