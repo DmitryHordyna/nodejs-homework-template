@@ -25,4 +25,6 @@ router.get(
 );
 router.get('/verify/:verifyToken', controllerWrapper(ctrl.verify));
 
+router.post('/verify', controllerWrapper(ctrl.repeatVerification));
+
 module.exports = router;

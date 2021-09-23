@@ -22,8 +22,8 @@ const signup = async (req, res, next) => {
 
   const data = {
     to: email,
-    subject: 'Подтверждение регистрации на сайте',
-    html: `<a href="http://localhost:3003/api/v1/verify/${verifyToken}">Подтвердите регистрацию на сайте!/a>
+    subject: 'Confirm for registration!',
+    html: `<p>Hey!</p><a href="http://localhost:3003/api/v1/verify/${verifyToken}">Click here and confirm this!/a>
     `,
   };
 
